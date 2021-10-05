@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="weather_block">
+        <div class="weather_nav">
+            <div class="allMenu">
+                <img class="weather_menu" src="Icon/menu.svg" alt="asd">
+                <div class="language">
+                    <img src="Icon/eng.png" alt="" class="languageShow">
+                    <div class="languageBox">
+                        <div class="languageList">
+                            <img data-lang="eng" src="Icon/eng.png" alt="">
+                            <img data-lang="rus" src="Icon/rus.png" alt="">
+                            <img data-lang="uzb" src="Icon/uzb.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4>WeatherApp</h4>
+            <div class="searchBlock">
+                <div class="searchEnter">
+                    <input id="search" type="text" placeholder="Enter your desired country">
+                    <img id="loupe" src="Icon/loupe.png" alt="">
+                </div>
+                <div id="inputMenu"></div>
+            </div>
+                <img id="plus" src="Icon/plus.svg" alt="sad">
+        </div>
+
+
+        <div class="weather-info">
+            <div class="city_date">
+                <h1>Tashkent</h1>
+                <div class="date_info">
+                    <span>Shanba</span>
+                    <span>Sentyabr</span>
+                    <span>18</span>
+                    <span>2021</span>
+                </div>
+            </div>
+            <div class="degres">
+                <p><span>0</span><sup>o</sup>C</p>
+            </div>
+            <div class="line"></div>
+            <div class="verible_degres">
+                <h4>Sunny</h4>
+                <div>                <span><span class="weatherMin">0</span><sup>o</sup>c</span>/<span><span class="weatherMax"></span><sup>o</sup>c</span></div>
+            </div>
+        </div>
+
+        <div class="icons">
+            <img src="Icon/clear sky.svg" alt="">
+        </div>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
