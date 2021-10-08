@@ -796,54 +796,9 @@
     ],
     "month":[
         {
-            "eng":["January","February","March","April","May","","","","","","",""],
-            "rus":["Январь","Февраль","Март","Апрель","Май","","","","","","",""],
-            "uzb":["Yanvar","Fevral","Mart","Aprel","May","","","","","","",""]
-        },
-        {
-            "eng":"",
-            "rus":"",
-            "uzb":""
-        },
-        {
-            "eng":"",
-            "rus":"",
-            "uzb":""
-        },
-        {
-            "eng":"Jun",
-            "rus":"Июнь",
-            "uzb":"Iyun"
-        },
-        {
-            "eng":"July",
-            "rus":"Июль",
-            "uzb":"Iyul"
-        },
-        {
-            "eng":"August",
-            "rus":"",
-            "uzb":"Avgust"
-        },
-        {
-            "eng":"September",
-            "rus":"",
-            "uzb":"Sentabr"
-        },
-        {
-            "eng":"October",
-            "rus":"",
-            "uzb":"Oktabr"
-        },
-        {
-            "eng":"November",
-            "rus":"",
-            "uzb":"Noyabr"
-        },
-        {
-            "eng":"December",
-            "rus":"",
-            "uzb":"Dekabr"
+            "eng":["January","February","March","April","May","Jun","July","August","September","October","November","December"],
+            "rus":["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],
+            "uzb":["Yanvar","Fevral","Mart","Aprel","May","Iyun","Iyul","Avgust","Sentabr","Oktabr","Noyabr","Dekabr"]
         }
     ]
 }

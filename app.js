@@ -21,17 +21,35 @@ let tf = true
 languageShow.addEventListener('click' ,() =>{
     languageList.classList.toggle('listShow')
     languageFlag.forEach(item =>{
+        
         item.addEventListener('click' , () =>{
             languageShow.classList.add('langShow')
             localStorage.setItem('src', item.getAttribute('src'))
             languageShow.setAttribute('src', localStorage.getItem('src'))
+            localStorage.setItem('lang', item.getAttribute('data-lang'))
             languageList.classList.remove('listShow')
             correctWeek()
-            localStorage.setItem('lang', item.getAttribute('data-lang'))
+            correctMonth()
+            
+            
         })
         languageShow.classList.remove('langShow')
+        
     })
+  
+    
 })
+
+
+
+let weekDay = new Date().getDay()
+let months = new Date().getMonth()
+let day = new Date().getDate()
+let year = new Date().getFullYear()
+
+dateInfo[2].innerHTML = day
+dateInfo[3].innerHTML =  year
+
 
 function correctWeek(){
     fetch("http://localhost:3000/week")
@@ -39,64 +57,131 @@ function correctWeek(){
     .then((data) => 
         data.forEach(week =>{
             if(localStorage.getItem("lang") === "eng"){
-                dateInfo[1].innerHTML = week.eng[weekDay - 1]
+                dateInfo[0].innerHTML = week.eng[weekDay - 1]
+                
             }
             if(localStorage.getItem("lang") === "rus"){
-                dateInfo[1].innerHTML = week.rus[weekDay - 1]
+                dateInfo[0].innerHTML = week.rus[weekDay - 1]
+               
             }
             if(localStorage.getItem("lang") === "uzb"){
-                dateInfo[1].innerHTML = week.uzb[weekDay - 1]
+                dateInfo[0].innerHTML = week.uzb[weekDay - 1]
             }
         })
     )
 }
 
+correctWeek()
+function correctMonth(){
+    fetch(" http://localhost:3000/month")
+    .then((response) => response.json())
+    .then((data) => 
+        data.forEach(month =>{
+            if(localStorage.getItem("lang") === "eng"){
+                dateInfo[1].innerHTML = month.eng[months]
+                
+                
+            }
+            if(localStorage.getItem("lang") === "rus"){
+                dateInfo[1].innerHTML = month.rus[months]
+               
+            }
+            if(localStorage.getItem("lang") === "uzb"){
+                dateInfo[1].innerHTML = month.uzb[months]
+                
+            }
+        })
+    )
+
+    localStorage.getItem("lang")
+}
+
+correctMonth()
+
 
 
 languageShow.setAttribute('src', localStorage.getItem('src'))
 
-fetch("http://localhost:3000/countrys")
-.then((response) => response.json())
-.then((data) => getCountryName(data))
 
-function getCountryName(data){
-    data.forEach(item => {
-        let p = document.createElement('p')
-        p.innerHTML = item.eng
-        inputMenu.append(p)
-        p.setAttribute('data-count', item.eng)
-    });
-}
 
-plusBtn.addEventListener('click', () =>{
+        languageFlag[1].addEventListener('click', () =>{
+             fetch("http://localhost:3000/countrys")
+            .then((response) => response.json())
+            .then((data) => {
+            data.forEach( item => {
+                let p = document.createElement('p')
+                p.innerHTML = item.rus
+                inputMenu.append(p)
+                p.setAttribute('data-count', item.eng)
+            });
+            console.log('rus');
+              })
+        })
+        
+
+        languageFlag[0].addEventListener('click', () =>{
+             fetch("http://localhost:3000/countrys")
+            .then((response) => response.json())
+            .then((data) => {
+            data.forEach( item => {
+                let p = document.createElement('p')
+                p.innerHTML = item.eng
+                inputMenu.append(p)
+                p.setAttribute('data-count', item.eng)
+            });
+            console.log('eng');
+              })
+        })
+        languageFlag[2].addEventListener('click', () =>{
+             fetch("http://localhost:3000/countrys")
+            .then((response) => response.json())
+            .then((data) => {
+            data.forEach( item => {
+                let p = document.createElement('p')
+                p.innerHTML = item.rus
+                inputMenu.append(p)
+                p.setAttribute('data-count', item.eng)
+            });
+              console.log('uzb');
+              })
+        })
+        
+        
+            
+
+
+
+
+
+plusBtn.addEventListener('click',  () =>{
     plusBtn.classList.toggle('plusClick')
+    inputMenu.classList.remove('menuShow')
     searchEnter.classList.toggle('showSearch')
     loupe.classList.toggle('loupe')
     searchBtn.addEventListener('click', () =>{
         inputMenu.classList.toggle('menuShow')
+        
 
         inputMenu.querySelectorAll('p').forEach(item =>{
-            item.addEventListener('click', () =>{
+            item.addEventListener('click',  () =>{
                 let getNameCounter = item.getAttribute('data-count')
                 localStorage.setItem('countryName', getNameCounter)
                 fetch(`http://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem('countryName')}&appid=${apiKey}`)
                     .then((response) => response.json())
                     .then((data) => {getWeatherInfo(data);changePhoto(data)})
                 inputMenu.classList.remove('menuShow')
+                
                 cityDate.innerHTML = localStorage.getItem('countryName')
             })             
         })
     })
 })
 
-let weekDay = new Date().getDay()
-let month = new Date().getMonth()
-let day = new Date().getDate()
-let year = new Date().getFullYear()
 
 
 loupe.addEventListener('click', () =>{
     inputMenu.classList.toggle('menuShow')
+    
     localStorage.setItem('countryName', searchBtn.value)
     cityDate.innerHTML = localStorage.getItem('countryName')
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchBtn.value}&appid=${apiKey}`)
