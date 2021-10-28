@@ -151,7 +151,7 @@ function createP(country) {
       let getNameCounter = item.getAttribute("data-lang");
       localStorage.setItem("countryName", getNameCounter);
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(
+        `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(
           "countryName"
         )}&appid=${apiKey}`
       )
@@ -213,7 +213,7 @@ cityDate.innerHTML = localStorage.getItem("countryName");
 async function getCorrectCountyDegree(){
   
   await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(
+    `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(
       "countryName"
     )}&appid=${apiKey}`
   )
@@ -264,7 +264,7 @@ loupe.addEventListener("click", () => {
   localStorage.setItem("countryName", searchBtn.value);
   cityDate.innerHTML = localStorage.getItem("countryName");
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${searchBtn.value}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchBtn.value}&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((data) => getWeatherInfo(data));
@@ -279,7 +279,7 @@ window.addEventListener("keydown", (e) => {
     cityDate.innerHTML = localStorage.getItem("countryName");
 
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${searchBtn.value}&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${searchBtn.value}&appid=${apiKey}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -300,7 +300,7 @@ function getWeatherInfo(data) {
 
 function correctWeather() {
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(
+    `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(
       "countryName"
     )}&appid=${apiKey}`
   )

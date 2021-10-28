@@ -10,7 +10,6 @@
   background-repeat: no-repeat;
   position: relative;
   top: 50px;
-  left: 700px;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
@@ -325,4 +324,9 @@
 
 .icons img{
   width: 200px;
+}
+
+
+@media screen and (max-width:370px) {
+
 }
