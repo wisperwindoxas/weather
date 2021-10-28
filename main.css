@@ -2,7 +2,7 @@
   font-family: "Noto Sans JP", sans-serif;
 }
 .weather_block {
-  width: 500px;
+  width: 375px;
   height: 800px;
   background-image: url(https://phonoteka.org/uploads/posts/2021-04/1618831461_15-phonoteka_org-p-letnii-fon-vertikalnii-20.jpg);
   background-size: cover;
@@ -96,11 +96,11 @@
   transform: translateX(0) !important;
 }
 .weather_nav h4 {
-  color: #fff;
+  color: rgb(255, 255, 255);
   z-index: 30;
   font-size: 25px;
   position: absolute;
-  left: 180px;
+  left: 120px;
 }
 .weather_nav img {
   width: 30px;
@@ -122,7 +122,7 @@
 }
 
 .searchEnter {
-  width: 300px;
+  width: 250px;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -130,10 +130,15 @@
   padding: 0 10px;
   transition: all 0.4s;
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
   transform: translateX(-150%);
-  left: 65px;
+  left: 20px; 
+}
+
+.searchEnter #loupe{
+  width: 20px;
+  height: 20px;
 }
 
 .menuLeft {
@@ -171,8 +176,8 @@
 #inputMenu {
   position: absolute;
   top: 50px;
-  left: 73px;
-  width: 300px;
+  left: 30px;
+  width: 250px;
   height: 300px;
   background-color: #fff;
   padding: 10px;
@@ -182,7 +187,7 @@
   overflow-y: scroll;
   opacity: 0;
   transition: all 0.5s;
-  transform: translateY(500px);
+  transform: translateY(1000px);
 }
 
 .menuShow {
@@ -205,11 +210,11 @@
 
 #search {
   width: 100%;
-  height: 35px;
+  height: 25px;
   border: 1px solid #fff;
   outline: none;
   border-radius: 5px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .showSearch {
@@ -220,6 +225,9 @@
 #plus {
   transition: all 0.4s;
   cursor: pointer;
+  position: relative;
+  right: 20px;
+  z-index: 150;
 }
 
 .plusClick {
@@ -246,7 +254,7 @@
 }
 
 .city_date h1 {
-  font-size: 35px;
+  font-size: 28px;
   font-weight: bold;
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -327,6 +335,17 @@
 }
 
 
-@media screen and (max-width:370px) {
+@media screen and (max-width:375px) {
+  .searchEnter{
+    width: 250px;
+    left:30px;
+  }
 
+  #plus{
+   right: 10px;
+  }
+
+  .weather_nav h4{
+    left: 120px !important;
+  }
 }

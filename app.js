@@ -105,21 +105,28 @@ function correctWeek(weeks) {
 
   languageFlag[0].addEventListener("click", () =>{
     dateInfo[0].innerHTML = weeks.eng[weekDay]
+    searchBtn.setAttribute('placeholder', localStorage.getItem('countryName'))
+
   })
   languageFlag[1].addEventListener("click", () =>{
     dateInfo[0].innerHTML = weeks.rus[weekDay]
+    searchBtn.setAttribute('placeholder', localStorage.getItem('rusCountryName'))
   })
   languageFlag[2].addEventListener("click", () =>{
     dateInfo[0].innerHTML = weeks.uzb[weekDay]
+    searchBtn.setAttribute('placeholder', localStorage.getItem('rusCountryName'))
   })
   if(localStorage.getItem("lang") === 'eng'){
     dateInfo[0].innerHTML = weeks.eng[weekDay]
+    searchBtn.setAttribute('placeholder', localStorage.getItem('countryName'))
   }
   if(localStorage.getItem("lang") === 'rus'){
     dateInfo[0].innerHTML = weeks.rus[weekDay]
+    searchBtn.setAttribute('placeholder', localStorage.getItem('rusCountryName'))
   }
   if(localStorage.getItem("lang") === 'uzb'){
     dateInfo[0].innerHTML = weeks.uzb[weekDay]
+    searchBtn.setAttribute('placeholder', localStorage.getItem('rusCountryName'))
   }
      
 }
@@ -150,6 +157,7 @@ function createP(country) {
     item.addEventListener("click",  () => {
       let getNameCounter = item.getAttribute("data-lang");
       localStorage.setItem("countryName", getNameCounter);
+      
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${localStorage.getItem(
           "countryName"
@@ -165,9 +173,13 @@ function createP(country) {
         let rusCountry = item.innerHTML;
         localStorage.setItem('rusCountryName', rusCountry)
         cityDate.innerHTML = rusCountry;
+        searchBtn.setAttribute('placeholder', localStorage.getItem('rusCountryName'))
+
 
       } else {
         cityDate.innerHTML = localStorage.getItem("countryName");
+        searchBtn.setAttribute('placeholder', localStorage.getItem('countryName'))
+
       }
     });
   });
