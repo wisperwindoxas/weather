@@ -1,15 +1,16 @@
 * {
   font-family: "Noto Sans JP", sans-serif;
+ 
 }
 .weather_block {
-  width: 375px;
-  height: 800px;
+  width: 400px;
+  height: 700px;
   background-image: url(https://phonoteka.org/uploads/posts/2021-04/1618831461_15-phonoteka_org-p-letnii-fon-vertikalnii-20.jpg);
   background-size: cover;
   border-radius: 15px;
   background-repeat: no-repeat;
   position: relative;
-  top: 50px;
+
   overflow: hidden;
   display: flex;
   justify-content: space-between;

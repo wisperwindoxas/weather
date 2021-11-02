@@ -235,6 +235,7 @@ async function getCorrectCountyDegree(){
 
 getCorrectCountyDegree()
 
+
 function getCorrectCountryName(countNames) {
     let allP = document.querySelectorAll("#inputMenu p");
     languageFlag[0].addEventListener("click", ()=>{
@@ -268,7 +269,22 @@ function getCorrectCountryName(countNames) {
         allP[index].innerHTML = item.rus
       })
     }
+
+    const allCountry = countNames.map(item => {
+        return item.eng
+    })
+
+
+   const allSer =  allCountry.filter(item => console.log(item))
+
+  console.log(allSer);
+
+   
+
 }
+
+
+
 
 loupe.addEventListener("click", () => {
   inputMenu.classList.toggle("menuShow");
